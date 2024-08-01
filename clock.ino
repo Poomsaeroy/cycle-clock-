@@ -26,11 +26,10 @@
 
 #define LINE_TOKEN  "aIjRsNSKTO5DUUS8L2Nxb3l3IFIKYaflSEtxMly20e8"
 
-const char *ssid = "God_AP"; //Poomsaeroy
-const char *password = "God123456";//0123456789
+const char *ssid = ""; //add ssid
+const char *password = "";//add password
 
-// const char *ssid = "CoEIoT";
-// const char *password = "iot.coe.psu.ac.th";
+
 RTC_DS1307 rtc;
 int buzzerPin = 26;
 int pirSensorPin = 39;
@@ -68,23 +67,7 @@ void setup()
   Serial.println("");
   LINE.setToken(LINE_TOKEN);
   LINE.notify("connect to cycle clock!");
-
-
-  //SDA SCL RTC
-  //pin19  led เข
-  //23 DHT11
-  //14 16*16
-  //27 old poten
-  //26 buzzer
-  //12 sw acknowledge
-  //25 sw edit
-  //2 sw set
-  //34 swk2           
-  //35 swk1           
-  //33 sw k3          
-  //32 sw k4         
-
-
+     
   // กำหนดการทำงานของขาที่ใช้เป็นอินพุต
   pinMode(32, INPUT);  
   pinMode(33, INPUT);
@@ -100,14 +83,12 @@ void setup()
   pinMode(pirSensorPin, INPUT);
   pinMode(soundSensorPin, INPUT);
 
-  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   // กำหนดค่าให้กับการเชื่อมต่อเเบบ Serial
   SerialPort.begin(115200, SERIAL_8N1, 16, 17);
   // กำหนด Seed ให้กับฟังก์ชัน random
   randomSeed((unsigned)time(&sec_time));
   // กำหนดค่าสถานะเริ่มต้นต่างๆเเละเปิดใช้งานไลบรารี่ให้กับโปรเเกรม
   graphic.setup();
-
   graphic.setBackground(background_data[0]);
   dht.begin();
   Wire.begin();
@@ -128,8 +109,6 @@ void setup()
   ignore_time = millis() + 10100;
 
 }
-
-
 
 void loop()
 {
