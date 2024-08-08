@@ -24,7 +24,7 @@
 #define DHTTYPE DHT11
 #define WDT_TIMEOUT 18 //5
 
-#define LINE_TOKEN  "aIjRsNSKTO5DUUS8L2Nxb3l3IFIKYaflSEtxMly20e8"
+#define LINE_TOKEN  "" //line token
 
 const char *ssid = ""; //add ssid
 const char *password = "";//add password
